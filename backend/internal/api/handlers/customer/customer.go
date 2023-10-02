@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"net/http"
-	"sync"
 
 	"github.com/gin-gonic/gin"
 	"github.com/liwasi-tech/liwasi-sbm/backend/internal/domain/customer/entity"
@@ -12,13 +11,12 @@ import (
 
 var (
 	customerService service.CustomerService
-	once            sync.Once
 )
 
 func getCustomerService() (c service.CustomerService, err error) {
-	once.Do(func() {
+	if customerService == nil {
 		customerService, err = service.NewCustomerService()
-	})
+	}
 	return customerService, err
 }
 

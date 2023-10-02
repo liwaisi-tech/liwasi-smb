@@ -1,0 +1,26 @@
+version: '3'
+services:
+  database:
+    build:
+      context: ./backend/internal/infraestructure/database/postgres
+    ports:
+      - '5432:5432'
+    networks: 
+      - liwasi-smb-network
+
+  customer-rest:
+    build:
+      context: ./backend
+    environment:
+      - POSTGRES_HOST=database
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DATABASE=liwasi-smb-database
+    ports:
+      - '8010:8010'
+    networks:
+      - liwasi-smb-network
+
+networks:
+  liwasi-smb-network:

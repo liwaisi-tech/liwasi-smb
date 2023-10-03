@@ -6,7 +6,7 @@ Desde Liwasi-Tech queremos brindar una herramienta de código libre (Open Source
 
 ## Requerimientos
 - Docker (https://docs.docker.com/get-docker/)
-- Docker Compose (https://docs.docker.com/compose/install/)
+- Docker Compose V2 (https://docs.docker.com/compose/install/)
 
 ## Instalación
 
@@ -16,6 +16,6 @@ Desde Liwasi-Tech queremos brindar una herramienta de código libre (Open Source
 ### Construir el proyecto localmente usando docker compose:
 
 ```console
-docker-compose up
+docker compose up
 ```
 

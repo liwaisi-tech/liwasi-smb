@@ -5,6 +5,8 @@ import (
 )
 
 type CustomerRepository interface {
-	GetCustomerByID(id string) (customer *entity.Customer, err error)
+	GetCustomerByID(ID string) (customer *entity.Customer, err error)
 	CreateCustomer(customer *entity.Customer) (err error)
+	UpdateCustomer(customer *entity.Customer) (err error)
+	DeleteCustomer(ID string) (err error)
 }

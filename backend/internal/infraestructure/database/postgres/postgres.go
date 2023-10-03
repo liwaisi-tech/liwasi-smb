@@ -2,9 +2,11 @@ package postgres
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	customerEntity "github.com/liwasi-tech/liwasi-sbm/backend/internal/domain/customer/entity"
+	smbEntity "github.com/liwasi-tech/liwasi-sbm/backend/internal/domain/smb/entity"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -59,6 +61,10 @@ func OpenDefautDatabase() (db *gorm.DB, err error) {
 }
 
 func migrations(db *gorm.DB) (err error) {
-	err = db.AutoMigrate(&customerEntity.Customer{})
+	err = db.AutoMigrate(
+		&customerEntity.Customer{},
+		&smbEntity.Business{},
+	)
+	log.Println("Finish automigrate with error", err)
 	return
 }

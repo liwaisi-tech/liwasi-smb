@@ -11,6 +11,8 @@ import (
 type CustomerService interface {
 	GetCustomer(ID string) (customer entity.Customer, err error)
 	CreateCustomer(customer entity.Customer) (err error)
+	UpdateCustomer(customer entity.Customer) (err error)
+	DeleteCustomer(ID string) (err error)
 }
 
 type customerService struct {
@@ -27,19 +29,4 @@ func NewCustomerService() (service CustomerService, err error) {
 		customerRepo: repository,
 	}
 	return
-}
-
-// CustomerService interface implementation
-
-func (srv *customerService) GetCustomer(ID string) (customer entity.Customer, err error) {
-	customerRepo, err := srv.customerRepo.GetCustomerByID(ID)
-	if err != nil {
-		return
-	}
-	customer = *customerRepo
-	return
-}
-
-func (srv *customerService) CreateCustomer(customer entity.Customer) (err error) {
-	return srv.customerRepo.CreateCustomer(&customer)
 }

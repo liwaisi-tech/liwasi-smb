@@ -11,6 +11,8 @@ func main() {
 	{
 		customer.GET("/:id", handlers.Get())
 		customer.POST("/", handlers.Create())
+		customer.PUT("/:id", handlers.Update())
+		customer.DELETE("/:id", handlers.Delete())
 	}
 	r.Run(":8010")
 }

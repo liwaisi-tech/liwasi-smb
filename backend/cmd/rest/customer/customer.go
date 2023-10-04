@@ -1,12 +1,11 @@
-package main
+package customer
 
 import (
 	"github.com/gin-gonic/gin"
 	handlers "github.com/liwasi-tech/liwasi-sbm/backend/internal/api/handlers/customer"
 )
 
-func main() {
-	r := gin.Default()
+func RegisterRoutes(r *gin.Engine) {
 	customer := r.Group("/customer")
 	{
 		customer.GET("/:id", handlers.Get())
@@ -14,5 +13,4 @@ func main() {
 		customer.PUT("/:id", handlers.Update())
 		customer.DELETE("/:id", handlers.Delete())
 	}
-	r.Run(":8010")
 }

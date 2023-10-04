@@ -20,18 +20,18 @@ func NewPostgresCustomerRepository(gormDB *gorm.DB) repository.CustomerRepositor
 
 // CustomerRepository implementation
 
-func (repo *postgresCustomerRepository) GetCustomerByID(ID string) (customer *entity.Customer, err error) {
+func (repo *postgresCustomerRepository) GetByID(ID string) (customer *entity.Customer, err error) {
 	customer = &entity.Customer{}
-	result := repo.gormDB.First(customer, ID)
+	result := repo.gormDB.Unscoped().First(customer, ID)
 	if result.Error != nil {
 		err = result.Error
 	}
 	return
 }
 
-func (repo *postgresCustomerRepository) CreateCustomer(customer *entity.Customer) (err error) {
+func (repo *postgresCustomerRepository) Create(customer *entity.Customer) (err error) {
 	find := &entity.Customer{}
-	result := repo.gormDB.First(find, customer.ID)
+	result := repo.gormDB.Unscoped().First(find, customer.ID)
 	if find.ID == customer.ID {
 		err = errors.New("user already exist")
 		return
@@ -47,9 +47,9 @@ func (repo *postgresCustomerRepository) CreateCustomer(customer *entity.Customer
 	return
 }
 
-func (repo *postgresCustomerRepository) UpdateCustomer(customer *entity.Customer) (err error) {
+func (repo *postgresCustomerRepository) Update(customer *entity.Customer) (err error) {
 	find := &entity.Customer{}
-	result := repo.gormDB.First(find, customer.ID)
+	result := repo.gormDB.Unscoped().First(find, customer.ID)
 	if result.Error != nil {
 		err = result.Error
 		return
@@ -61,7 +61,7 @@ func (repo *postgresCustomerRepository) UpdateCustomer(customer *entity.Customer
 	return
 }
 
-func (repo *postgresCustomerRepository) DeleteCustomer(ID string) (err error) {
+func (repo *postgresCustomerRepository) DeleteByID(ID string) (err error) {
 	customer := &entity.Customer{}
 	result := repo.gormDB.Unscoped().First(customer, ID)
 	if result.Error != nil {

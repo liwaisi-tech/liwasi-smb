@@ -2,11 +2,11 @@ package entity
 
 import "gorm.io/gorm"
 
-// SMD is the struct representation for Small and Medium Business
+// Business is the struct representation for Small and Medium Business
 type Business struct {
 	gorm.Model `json:"-"`
 	ID         string `gorm:"primaryKey" json:"id"`
-	FullName   string `json:"fullName,omitempty"`
+	FullName   string `json:"full_name,omitempty"`
 	Name       string `json:"name"`
 	Email      string `json:"email,omitempty"`
 	Phone      string `json:"phone,omitempty"`

@@ -7,7 +7,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 
 COPY . .
-RUN go build -o smb-rest ./cmd/rest/smb
+RUN GOOS=linux go build -o smb-rest ./cmd/rest
 
 # Imagen final para el servicio de archivos
 FROM alpine:latest

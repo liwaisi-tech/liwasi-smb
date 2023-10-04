@@ -9,7 +9,7 @@ services:
     networks: 
       - liwasi-smb-network
 
-  smb-customer-rest:
+  smb-rest:
     build:
       context: ./backend
     environment:

@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 function ViewBusiness() {
   return (
     <section className="w-full">
-      <NavBar />
       <LargeTitle title="Modo lectura" className="px-4"/>
     </section>
   )

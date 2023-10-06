@@ -21,7 +21,8 @@ function RoundedCard(props: RoundedCardProps) {
             src="/images/pizzeria.png"
             alt="Pizza Artesanal Llanera"
             fill={true}
-            objectFit="cover"
+            style={{objectFit: "cover"}}
+            priority = {true}
           />
         </div>
         <p className="text-gray-700 text-xs px-1">
@@ -31,7 +32,7 @@ function RoundedCard(props: RoundedCardProps) {
           Santa Helena de Cusiva, Maní, Casanare.
         </p>
         <div className="w-full flex items-end justify-end px-2 py-4">
-          <Link href="/business/1/edit">
+          <Link href="/business/1121862665/edit">
             <SingleButton text="Editar" />
           </Link>
           <RoundedBgButton text="Abrir" />

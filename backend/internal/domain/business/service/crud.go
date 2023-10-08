@@ -1,6 +1,8 @@
 package service
 
-import "github.com/liwasi-tech/liwasi-sbm/backend/internal/domain/business/entity"
+import (
+	"github.com/liwasi-tech/liwasi-sbm/backend/internal/domain/business/entity"
+)
 
 func (s *businessService) GetBusiness(ID string) (business entity.Business, err error) {
 	find, err := s.businessRepository.GetByID(ID)
@@ -21,4 +23,8 @@ func (s *businessService) UpdateBusiness(business entity.Business) (err error) {
 
 func (s *businessService) DeleteBusiness(ID string) (err error) {
 	return s.businessRepository.DeleteByID(ID)
+}
+
+func (s *businessService) GetAllBusinesses() (businesses []entity.Business, err error) {
+	return s.businessRepository.GetAll()
 }

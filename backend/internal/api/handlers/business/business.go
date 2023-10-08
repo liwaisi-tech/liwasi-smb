@@ -41,6 +41,28 @@ func Get() gin.HandlerFunc {
 	}
 }
 
+func GetAll() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		service, err := getBusinessService()
+		if err != nil {
+			c.JSON(500, err)
+			return
+		}
+		businesses, err := service.GetAllBusinesses()
+		if err != nil {
+			// Validate not found
+			if err == gorm.ErrRecordNotFound {
+				c.JSON(404, "not found")
+				return
+			}
+			c.JSON(500, err)
+			return
+		}
+		c.JSON(200, businesses)
+
+	}
+}
+
 func Create() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		service, err := getBusinessService()

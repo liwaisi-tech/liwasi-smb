@@ -60,3 +60,8 @@ func (r *postgresBusinessRepository) DeleteByID(ID string) (err error) {
 	err = r.gormDB.Unscoped().Delete(business).Error
 	return
 }
+
+func (r *postgresBusinessRepository) GetAll() (businesses []entity.Business, err error) {
+	err = r.gormDB.Unscoped().Find(&businesses).Error
+	return
+}

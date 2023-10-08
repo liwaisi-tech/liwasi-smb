@@ -12,6 +12,7 @@ type BusinessService interface {
 	CreateBusiness(business entity.Business) (err error)
 	UpdateBusiness(business entity.Business) (err error)
 	DeleteBusiness(ID string) (err error)
+	GetAllBusinesses() (businesses []entity.Business, err error)
 }
 
 type businessService struct {

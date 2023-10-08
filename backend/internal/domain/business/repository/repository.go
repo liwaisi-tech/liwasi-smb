@@ -7,4 +7,5 @@ type BusinessRepository interface {
 	Create(business *entity.Business) (err error)
 	Update(business *entity.Business) (err error)
 	DeleteByID(ID string) (err error)
+	GetAll() (businesses []entity.Business, err error)
 }

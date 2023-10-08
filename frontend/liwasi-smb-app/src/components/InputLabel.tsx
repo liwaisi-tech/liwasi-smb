@@ -3,6 +3,7 @@ interface InputLabelProps {
     label: string;
     type: string;
     id: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     value?: string;
 }
 
@@ -20,6 +21,7 @@ function InputLabel(props: InputLabelProps) {
                     id={props.id}
                     className="w-full border border-primary-blue-dark rounded-md p-2 text-base font-normal text-gray-900"
                     type={props.type}
+                    onChange={props.onChange}
                     defaultValue={props.value} />
             </div>
         </div>

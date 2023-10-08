@@ -27,6 +27,8 @@ services:
   smb-app-front:
     build:
       context: ./frontend/liwasi-smb-app
+    environment:
+      - SMB_API_REST_HOST=smb-rest
     ports:
       - '3000:3000'
     networks:

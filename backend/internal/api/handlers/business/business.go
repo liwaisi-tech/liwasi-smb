@@ -54,6 +54,10 @@ func Create() gin.HandlerFunc {
 			c.JSON(400, err)
 			return
 		}
+		if business.ID == "" {
+			c.JSON(400, "ID is empty")
+			return
+		}
 		err = service.CreateBusiness(business)
 		if err != nil {
 			if err.Error() == "user already exist" {

@@ -3,6 +3,7 @@ interface RoundedBgButtonProps {
   text: string;
   bgColor?: string;
   textColor?: string;
+  type?: "button" | "submit" | "reset" | undefined;
   onClick?: () => void;
 }
 
@@ -13,7 +14,10 @@ function RoundedBgButton(props: RoundedBgButtonProps) {
     bgTextColor = `${props.bgColor} ${props.textColor}`
   }
   return (
-    <button className={`${bgTextColor} px-4 py-2 rounded-md shadow-sm font-semibold`}>
+    <button
+      onClick={props.onClick}
+      type={props.type}
+      className={`${bgTextColor} px-4 py-2 rounded-md shadow-sm font-semibold`}>
       {props.text}
     </button>
   )

@@ -32,7 +32,7 @@ function RoundedCard(props: RoundedCardProps) {
           Santa Helena de Cusiva, Maní, Casanare.
         </p>
         <div className="w-full flex items-end justify-end px-2 py-4">
-          <Link href="/business/1121862665/edit">
+          <Link href="/business/edit/1121862665">
             <SingleButton text="Editar" />
           </Link>
           <RoundedBgButton text="Abrir" />

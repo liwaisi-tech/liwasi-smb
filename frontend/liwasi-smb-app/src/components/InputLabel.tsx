@@ -9,7 +9,7 @@ interface InputLabelProps {
 
 function InputLabel(props: InputLabelProps) {
     return (
-        <div>
+        <div className="">
             <label
                 htmlFor={props.id}
                 className="text-gray-500 text-sm "

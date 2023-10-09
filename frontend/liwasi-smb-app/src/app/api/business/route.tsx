@@ -16,3 +16,10 @@ export async function POST(request: Request) {
     }
     return NextResponse.json({ error: `status response: ${status}` }, { status: status })
 }
+
+export async function GET(request : Request) {
+    //Llamar el microservicio de business
+    const response = await fetch(`http://${process.env.SMB_API_REST_HOST}:8010/business/`, {next: { revalidate: 0 }});
+    const business = await response.json();
+    return NextResponse.json(business)
+}

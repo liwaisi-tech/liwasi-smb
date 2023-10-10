@@ -9,7 +9,7 @@ function SingleButton(props: SingleButtonProps) {
     <button
       onClick={props.onClick}
       type={props.type}
-      className={`${props.textColor ? props.textColor : "text-primary-blue-dark"} px-4 py-2 rounded-md shadow-sm font-semibold`}>
+      className={`${props.textColor ? props.textColor : "text-primary-blue-dark"} px-4 py-2 rounded-md shadow-lg ml-1 font-semibold`}>
       {props.text}
     </button>
   )

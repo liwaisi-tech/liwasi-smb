@@ -17,7 +17,7 @@ function RoundedBgButton(props: RoundedBgButtonProps) {
     <button
       onClick={props.onClick}
       type={props.type}
-      className={`${bgTextColor} px-4 py-2 rounded-md shadow-sm font-semibold`}>
+      className={`${bgTextColor} px-4 py-2 ml-1 rounded-md shadow-sm font-semibold`}>
       {props.text}
     </button>
   )

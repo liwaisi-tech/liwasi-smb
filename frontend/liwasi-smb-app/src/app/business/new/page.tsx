@@ -1,6 +1,7 @@
 "use client"
 import FormButtons from "@/components/FormButtons"
 import InputLabel from "@/components/InputLabel"
+import LargeTitle from "@/components/LargeTitle"
 import { useRouter } from "next/navigation"
 import { FormEvent, useEffect, useState } from "react"
 
@@ -95,62 +96,68 @@ function NewBusinessPage({ params }: { params: { businessId: string } }) {
         console.log(data)
     }
     return (
-        <div className="w-full flex justify-center px-4">
-            <div className="w-full flex md:w-2/3">
-                <form onSubmit={onSubmitHandler} className="w-full">
-                    <InputLabel
-                        id="id"
-                        label="Identificación (NIT)*"
-                        type="text"
-                        onChange={(e) => setBusinessId(e.target.value)}
-                        value={businessId} />
-                    <InputLabel
-                        id="full_name"
-                        label="Nombre o razón social*"
-                        type="text"
-                        onChange={(e) => setFullName(e.target.value)}
-                        value={fullName} />
-                    <InputLabel
-                        id="name"
-                        label="Nombre (opcional)"
-                        type="text"
-                        onChange={(e) => setName(e.target.value)}
-                        value={name} />
-                    <InputLabel
-                        id="email"
-                        label="Correo electrónico (opcional)"
-                        type="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email} />
-                    <InputLabel
-                        id="phone"
-                        label="Teléfono"
-                        type="tel"
-                        onChange={(e) => setPhone(e.target.value)}
-                        value={phone} />
-                    <InputLabel
-                        id="address"
-                        label="Dirección (opcional)"
-                        type="text"
-                        onChange={(e) => setAddress(e.target.value)}
-                        value={address} />
-                    <InputLabel
-                        id="city"
-                        label="Ciudad (opcional)"
-                        type="text"
-                        onChange={(e) => setCity(e.target.value)}
-                        value={city} />
-                    <InputLabel
-                        id="state"
-                        label="Departamento (opcional)"
-                        type="text"
-                        onChange={(e) => setState(e.target.value)}
-                        value={state} />
-                    <FormButtons
-                        text={params.businessId ? "Actualizar" : "Crear"}
-                    />
-                </form>
-            </div>
+        <div className="w-full flex justify-center p-4">
+            <form onSubmit={onSubmitHandler} className="w-full">
+                <div className="w-full">
+                    {
+                        params.businessId ?
+                            <LargeTitle title={`Liwasi Pymes - Editando tu pyme ${params.businessId}`} />
+                            :
+                            <LargeTitle title="Liwasi Pymes - Crea tu pyme!" />
+                    }
+                </div>
+                <InputLabel
+                    id="id"
+                    label="Identificación (CC,NIT)*"
+                    type="text"
+                    onChange={(e) => setBusinessId(e.target.value)}
+                    value={businessId} />
+                <InputLabel
+                    id="full_name"
+                    label="Nombre o razón social*"
+                    type="text"
+                    onChange={(e) => setFullName(e.target.value)}
+                    value={fullName} />
+                <InputLabel
+                    id="name"
+                    label="Nombre (opcional)"
+                    type="text"
+                    onChange={(e) => setName(e.target.value)}
+                    value={name} />
+                <InputLabel
+                    id="email"
+                    label="Correo electrónico (opcional)"
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email} />
+                <InputLabel
+                    id="phone"
+                    label="Teléfono"
+                    type="tel"
+                    onChange={(e) => setPhone(e.target.value)}
+                    value={phone} />
+                <InputLabel
+                    id="address"
+                    label="Dirección (opcional)"
+                    type="text"
+                    onChange={(e) => setAddress(e.target.value)}
+                    value={address} />
+                <InputLabel
+                    id="city"
+                    label="Ciudad (opcional)"
+                    type="text"
+                    onChange={(e) => setCity(e.target.value)}
+                    value={city} />
+                <InputLabel
+                    id="state"
+                    label="Departamento (opcional)"
+                    type="text"
+                    onChange={(e) => setState(e.target.value)}
+                    value={state} />
+                <FormButtons
+                    text={params.businessId ? "Actualizar" : "Crear"}
+                />
+            </form>
         </div>
     )
 }

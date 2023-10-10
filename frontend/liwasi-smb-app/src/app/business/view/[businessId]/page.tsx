@@ -35,14 +35,19 @@ function ViewBusiness({ params }: { params: { businessId: string } }) {
     }
   }, [])
   return (
-    <section className="w-full flex justify-center">
-      <div className="w-full md:w-2/3 ">
-        <LargeTitle title={fullName} />
-        <p className="py-1 font-extralight text-3xl text-primary-blue-dark"
+    <main className="w-full flex justify-center">
+      <div className="w-full flex flex-col justify-center p-4">
+        <h3 className="font-extralight text-primary-blue-dark text-3xl md:text-4xl">
+          {fullName}
+        </h3>
+        <p className="py-1 font-semibold text-sm md:text-base text-primary-blue-dark"
         >
           {businessId}
         </p>
-        <p className="pe-1 text-lg font-light text-primary-blue-dark">{name}</p>
+        <div className="w-full">
+          <hr className="mx-8 bg-slate-300 mb-2" />
+        </div>
+        <p className="pe-1 text-lg font-light text-primary-blue-dark">Nombre comercial: {name}</p>
         <div className="w-full flex items-start">
           <FcCellPhone size={32} />
           <p className="text-lg font-light text-primary-blue-dark">{phone}</p>
@@ -63,7 +68,7 @@ function ViewBusiness({ params }: { params: { businessId: string } }) {
 
         </div>
       </div>
-    </section>
+    </main>
   )
 }
 

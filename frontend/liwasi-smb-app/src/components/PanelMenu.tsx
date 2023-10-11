@@ -7,7 +7,7 @@ function PanelMenu() {
                 <li>
                     <div className="w-full">
                         <Link
-                            className="hover:z-20 hover:shadow-sm hover:font-normal hover:cursor-pointer"
+                            className="hover:z-20 hover:shadow-sm hover:font-normal hover:cursor-pointer before:scale-x-0 before:origin-bottom-right hover:before:scale-y-100 hover:before:origin-bottom-left"
                             href="/business">
                             Mis Pymes
                         </Link>

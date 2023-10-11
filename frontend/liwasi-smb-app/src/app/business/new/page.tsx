@@ -97,7 +97,7 @@ function NewBusinessPage({ params }: { params: { businessId: string } }) {
     }
     return (
         <div className="w-full flex justify-center p-4">
-            <form onSubmit={onSubmitHandler} className="w-full">
+            <form onSubmit={onSubmitHandler} className="md:w-3/5">
                 <div className="w-full">
                     {
                         params.businessId ?

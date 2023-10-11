@@ -1,8 +1,5 @@
 "use client"
-import LargeTitle from "@/components/LargeTitle"
-import { Metadata } from "next"
 import { useEffect, useState } from "react"
-import { FcAddressBook, FcCellPhone, FcHome } from "react-icons/fc"
 
 function ViewBusiness({ params }: { params: { businessId: string } }) {
   const [businessId, setBusinessId] = useState("")
@@ -47,25 +44,31 @@ function ViewBusiness({ params }: { params: { businessId: string } }) {
         <div className="w-full">
           <hr className="mx-8 bg-slate-300 mb-2" />
         </div>
-        <p className="pe-1 text-lg font-light text-primary-blue-dark">Nombre comercial: {name}</p>
-        <div className="w-full flex items-start">
-          <FcCellPhone size={32} />
-          <p className="text-lg font-light text-primary-blue-dark">{phone}</p>
-        </div>
-        <div className="w-full flex items-start">
-          <FcAddressBook size={32} />
-          <p className="text-lg font-light text-primary-blue-dark">{email}</p>
-        </div>
-        <div className="w-full flex items-start">
-          <FcHome size={32} />
-          <p className="text-lg font-light text-primary-blue-dark">
+        {
+          name &&
+          <p className="pe-1 text-lg text-black font-light">
+            <span>Nombre comercial: </span>{`${name}`}
+          </p>
+        }
+        {
+          phone &&
+          <p className="text-lg font-light text-black">
+            <span>Teléfono: </span>{phone}
+          </p>
+        }
+        {
+          email &&
+          <p className="text-lg font-light text-black">{email}</p>
+        }
+        {
+          address &&
+          <p className="text-lg font-light text-black">
             {
               `${address ? `${address}` : ""}${city ? `, ${city}` : ""}${state ? `, ${state}` : ""}`
             }
           </p>
-        </div>
+        }
         <div className="w-full">
-
         </div>
       </div>
     </main>

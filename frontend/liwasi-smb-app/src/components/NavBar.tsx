@@ -19,7 +19,7 @@ function NavBar() {
                     </div>
                 </Link>
                 <div
-                    className="flex md:hidden items-center text-white w-12"
+                    className="flex md:hidden items-center text-white w-12 z-[50]"
                     onClick={toggleMenu}>
                     {
                         menuOpen ?
@@ -27,6 +27,46 @@ function NavBar() {
                             :
                             <AiOutlineMenu size={28} />
                     }
+                </div>
+            </div>
+            <div
+                className={
+                    menuOpen ?
+                        "md:hidden absolute top-0 bottom-0 right-0 left-0 flex justify-center items-center w-full h-screen bg-sky-700 text-center ease-in duration-300"
+                        :
+                        "md:hidden absolute top-0 bottom-0 right-0 left-[-100%] flex justify-center items-center w-full h-screen text-center ease-in duration-300"
+                }
+            >
+                <div
+                    className="w-full text-blue-500 text-xl z-[25]"
+                >
+                    <div
+                        className="w-full mb-5 pb-2 flex justify-center items-center mx-auto"
+                    >
+                        <Link
+                            href="/"
+                            passHref
+                            onClick={toggleMenu}
+                        >
+                            Liwasy Pymes
+                        </Link>
+                    </div>
+                    <ul
+                        className="px-4 font-normal cursor-pointer text-white"
+                    >
+                        <li
+                            className="py-3"
+                            onClick={toggleMenu}
+                        >
+                            <Link href="/business">Mis Pymes</Link>
+                        </li>
+                        <li
+                            className="py-3"
+                            onClick={toggleMenu}
+                        >
+                            <Link href="/business/new">Crear Pyme</Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </header>

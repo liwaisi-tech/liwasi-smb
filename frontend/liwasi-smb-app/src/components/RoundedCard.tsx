@@ -25,13 +25,13 @@ function RoundedCard(props: RoundedCardProps) {
           </p>
         }
         <div className="w-full overflow-hidden relative" style={{ height: '30vh' }}>
-          <Image
+          {/* <Image
             src="/images/pizzeria.png"
             alt="Pizza Artesanal Llanera"
             fill={true}
             style={{ objectFit: "cover" }}
             priority={true}
-          />
+          /> */}
         </div>
         {
           props.alt1 &&

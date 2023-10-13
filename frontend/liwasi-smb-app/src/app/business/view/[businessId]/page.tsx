@@ -1,5 +1,8 @@
 "use client"
+import RoundedBgButton from "@/components/RoundedBgButton"
+import TransactionList from "@/components/TransactionList"
 import { useEffect, useState } from "react"
+import { AiFillEdit } from "react-icons/ai"
 
 function ViewBusiness({ params }: { params: { businessId: string } }) {
   const [businessId, setBusinessId] = useState("")
@@ -68,7 +71,46 @@ function ViewBusiness({ params }: { params: { businessId: string } }) {
             }
           </p>
         }
-        <div className="w-full">
+        <div className="w-full flex flex-wrap justify-between pt-2">
+          <div className="w-full md:w-[48%] p-1 bg-slate-200 rounded-lg shadow-md">
+            <div className="w-full flex justify-between">
+              <h3 className="text-sm font-normal">Horarios de atención:</h3>
+              <button className="flex  hover:shadow-mdfont-semibold text-xs items-center bg-primary-blue-dark text-white justify-normal px-1 rounded-md">
+                Editar
+                <AiFillEdit size={16} />
+              </button>
+            </div>
+            <div className="w-full text-xs font-light">
+              <p>
+                LUN, MAR, MIE, JUE, VIE - 8:00 AM - 5:00 PM
+              </p>
+              <p>
+                SAB, DOM - 4:00 PM - 10:00 PM
+              </p>
+            </div>
+          </div>
+          <div className="w-full md:w-[48%] p-1 mt-2 md:mt-0 bg-slate-200 rounded-lg shadow-md">
+            <div className="w-full ">
+              <h3 className="text-sm font-normal">Accesos rápidos:</h3>
+              <div className="w-full flex items-center justify-around">
+                <button className="p-1 mx-1 bg-green-700 text-white rounded-md text-sm font-normal px-2 py-1">
+                  Abrir
+                </button>
+                <button className="p-1 mx-1 bg-red-700 text-white rounded-md text-sm font-normal px-2 py-1">
+                  Cerrar
+                </button>
+                <button className="p-1 mx-1 bg-orange-600 text-white rounded-md text-sm font-normal px-2 py-1">
+                  Gasto
+                </button>
+                <button className="p-1 mx-1 bg-sky-700 text-white rounded-md text-sm font-normal px-2 py-1">
+                  Venta
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="w-full pt-2">
+            <TransactionList />
+          </div>
         </div>
       </div>
     </main>

@@ -15,11 +15,13 @@ function PanelMenu() {
                 </li>
                 <li>
                     <ul>
-                        <li><Link
-                            className="px-2 hover:z-20 hover:shadow-sm hover:font-normal"
-                            href="/business/new">
-                            Crear una Pyme
-                        </Link></li>
+                        <li>
+                            <Link
+                                className="px-2 hover:z-20 hover:shadow-sm hover:font-normal"
+                                href="/business/new">
+                                Crear una Pyme
+                            </Link>
+                        </li>
                     </ul>
                 </li>
             </ul>

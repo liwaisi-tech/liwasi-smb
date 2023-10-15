@@ -9,7 +9,7 @@ interface RoundedBgButtonProps {
 
 
 function RoundedBgButton(props: RoundedBgButtonProps) {
-  let bgTextColor = "bg-primary-blue-dark text-white"
+  let bgTextColor = "bg-black text-white"
   if (props.bgColor) {
     bgTextColor = `${props.bgColor} ${props.textColor}`
   }
@@ -17,7 +17,7 @@ function RoundedBgButton(props: RoundedBgButtonProps) {
     <button
       onClick={props.onClick}
       type={props.type}
-      className={`${bgTextColor} px-4 py-2 ml-1 rounded-md shadow-sm font-semibold`}>
+      className={`${bgTextColor} text-sm px-1 py-1 md:px-4 md:py-2 hover:text-white rounded-md shadow-sm font-normal md:font-semibold`}>
       {props.text}
     </button>
   )

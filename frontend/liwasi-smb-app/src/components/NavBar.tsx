@@ -47,7 +47,7 @@ function NavBar() {
                 <div
                     className="w-full z-[25]"
                 >
-                    <PanelMenu />
+                    <PanelMenu fallback={toggleMenu}/>
                 </div>
             </div>
         </header>

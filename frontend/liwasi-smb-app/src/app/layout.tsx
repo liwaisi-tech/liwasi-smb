@@ -2,9 +2,7 @@ import NavBar from '@/components/NavBar'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Link from 'next/link'
 import PanelMenu from '@/components/PanelMenu'
-import Footer from '@/components/Footer'
 import BottomBar from '@/components/BottomBar'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -28,6 +26,7 @@ export default function RootLayout({
           </div>
           <div className="w-full md:w-4/5">
             <NavBar />
+            {children}
             <BottomBar />
           </div>
         </div>

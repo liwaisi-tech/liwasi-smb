@@ -1,6 +1,7 @@
 "use client"
 import RoundedBgButton from "@/components/RoundedBgButton"
 import TransactionList from "@/components/TransactionList"
+import CardTitle from "@/components/card/CardTitle"
 import { useEffect, useState } from "react"
 import { AiFillEdit } from "react-icons/ai"
 
@@ -37,42 +38,39 @@ function ViewBusiness({ params }: { params: { businessId: string } }) {
   return (
     <main className="w-full flex justify-center">
       <div className="w-full flex flex-col justify-center p-4">
-        <h3 className="font-extralight text-primary-blue-dark text-3xl md:text-4xl">
+        <h3 className="font-extralight text-white text-3xl md:text-4xl">
           {fullName}
         </h3>
-        <p className="py-1 font-semibold text-sm md:text-base text-primary-blue-dark"
+        <p className="py-1 font-light text-sm md:text-base text-white"
         >
           {businessId}
         </p>
-        <div className="w-full">
-          <hr className="mx-8 bg-slate-300 mb-2" />
-        </div>
         {
           name &&
-          <p className="pe-1 text-lg text-black font-light">
+          <p className="pe-1 text-base text-detail font-light">
             <span>Nombre comercial: </span>{`${name}`}
           </p>
         }
         {
           phone &&
-          <p className="text-lg font-light text-black">
+          <p className="text-base font-light text-detail">
             <span>Teléfono: </span>{phone}
           </p>
         }
         {
           email &&
-          <p className="text-lg font-light text-black">{email}</p>
+          <p className="text-base font-light text-detail">{email}</p>
         }
         {
           address &&
-          <p className="text-lg font-light text-black">
+          <p className="text-base font-light text-detail">
             {
               `${address ? `${address}` : ""}${city ? `, ${city}` : ""}${state ? `, ${state}` : ""}`
             }
           </p>
         }
         <div className="w-full flex flex-wrap justify-between pt-2">
-          <div className="w-full md:w-[48%] p-1 bg-slate-200 rounded-lg shadow-md">
+          <CardTitle title="Horarios de trabajo">
             <div className="w-full flex justify-between">
               <h3 className="text-sm font-normal">Horarios de atención:</h3>
               <button className="flex  hover:shadow-mdfont-semibold text-xs items-center bg-primary-blue-dark text-white justify-normal px-1 rounded-md">
@@ -88,7 +86,7 @@ function ViewBusiness({ params }: { params: { businessId: string } }) {
                 SAB, DOM - 4:00 PM - 10:00 PM
               </p>
             </div>
-          </div>
+          </CardTitle>
           <div className="w-full md:w-[48%] p-1 mt-2 md:mt-0 bg-slate-200 rounded-lg shadow-md">
             <div className="w-full ">
               <h3 className="text-sm font-normal">Accesos rápidos:</h3>

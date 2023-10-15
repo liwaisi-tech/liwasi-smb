@@ -11,11 +11,11 @@ const config: Config = {
       colors: {
         'primary-blue-dark': '#1E40AF',
         'black': '#121212',
-        'text-primary': '#333333',
-        'text-detail': '#CCCCCC',
-        'text-accent-blue': '#008080',
-        'text-accent-yellow': '#FFD700',
-        'text-accent-red': '#8B0000',
+        'primary': '#333333',
+        'detail': '#CCCCCC',
+        'accent-blue': '#008080',
+        'accent-yellow': '#FFD700',
+        'accent-red': '#8B0000',
         'bg-alternative': '#333333',
         'link-dark': '#0099FF'
       }

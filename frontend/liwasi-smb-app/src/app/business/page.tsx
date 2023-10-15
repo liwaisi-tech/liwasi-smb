@@ -2,10 +2,11 @@
 import LargeTitle from "@/components/LargeTitle"
 import PanelMenu from "@/components/PanelMenu"
 import RoundedCard from "@/components/RoundedCard"
+import CardTitle from "@/components/card/CardTitle"
 import { useEffect, useState } from "react"
 
 async function BusinessesPage() {
-    const empty : Business[] = []
+    const empty: Business[] = []
     const [businesses, setBusinesses] = useState(empty)
     useEffect(() => {
         fetch(`/api/business/`)
@@ -22,16 +23,14 @@ async function BusinessesPage() {
         <div className="w-full flex justify-center p-4">
             <div className="w-full flex flex-wrap justify-center">
                 <div className="w-full">
-                    <LargeTitle title="Liwasi Pymes - Administra y gestiona tus emprendimientos." />
+                    <LargeTitle title="Administra y gestiona tus emprendimientos." />
                 </div>
                 {
                     businesses.map((business) => {
+                        console.log(business)
                         return (
-                            <RoundedCard
-                                key={business.id}
-                                id={business.id}
-                                title={business.name ? business.name : ""}
-                                alt1={business.address ? business.address : ""} />
+                            <CardTitle key={business.id} title={business.full_name}>
+                            </CardTitle>
                         )
                     })
                 }

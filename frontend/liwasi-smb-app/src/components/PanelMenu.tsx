@@ -1,30 +1,41 @@
-import Link from "next/link"
+import Image from "next/image"
 
 function PanelMenu() {
     return (
-        <div className="hidden md:flex md:w-1/5 md:h-auto bg-slate-700">
-            <ul className="w-full px-2 pt-1 text-white font-light text-lg">
-                <li>
-                    <div className="w-full">
-                        <Link
-                            className="hover:z-20 hover:shadow-sm hover:font-normal hover:cursor-pointer before:scale-x-0 before:origin-bottom-right hover:before:scale-y-100 hover:before:origin-bottom-left"
-                            href="/business">
-                            Mis Pymes
-                        </Link>
-                    </div>
-                </li>
-                <li>
-                    <ul>
-                        <li>
-                            <Link
-                                className="px-2 hover:z-20 hover:shadow-sm hover:font-normal"
-                                href="/business/new">
-                                Crear una Pyme
-                            </Link>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+        <div className="w-full">
+            <div className="flex items-center justify-center">
+                <Image
+                    src="/images/liwasi-logo.png"
+                    width={80}
+                    height={80}
+                    alt="Liwasi Logo"
+                />
+            </div>
+            <div className="w-full items-center justify-start text-white">
+                <div className="flex flex-col">
+                    <nav className="text-text-detail">
+                        <ul className="pl-2">
+                            <li>
+                                <a href="#pymes">Pymes</a>
+                                <ul className="pl-2">
+                                    <li className="hover:text-white"><a href="#crear">Ver todas</a></li>
+                                    <li className="hover:text-white"><a href="#editar">Nueva venta</a></li>
+                                    <li className="hover:text-white"><a href="#editar">Registrar gasto</a></li>
+                                    <li className="hover:text-white"><a href="#editar">Crear pyme</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#inventario">Inventarios</a>
+                                <ul className="pl-2">
+                                    <li className="hover:text-white"><a href="#categorias">Categorías</a></li>
+                                    <li className="hover:text-white"><a href="#producto">Productos</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
         </div>
     )
 }

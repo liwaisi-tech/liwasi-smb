@@ -6,7 +6,9 @@ import (
 	"os"
 
 	businessEntity "github.com/liwasi-tech/liwasi-sbm/backend/internal/domain/business/entity"
+	categoryEntity "github.com/liwasi-tech/liwasi-sbm/backend/internal/domain/category/entity"
 	customerEntity "github.com/liwasi-tech/liwasi-sbm/backend/internal/domain/customer/entity"
+	productEntity "github.com/liwasi-tech/liwasi-sbm/backend/internal/domain/product/entity"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -64,6 +66,8 @@ func migrations(db *gorm.DB) (err error) {
 	err = db.AutoMigrate(
 		&customerEntity.Customer{},
 		&businessEntity.Business{},
+		&categoryEntity.Category{},
+		&productEntity.Product{},
 	)
 	log.Println("Finish automigrate with error", err)
 	return

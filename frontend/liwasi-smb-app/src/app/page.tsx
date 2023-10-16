@@ -16,7 +16,7 @@ export default function Home() {
   }, [])
   return (
     <main className="w-full px-2">
-      <LargeTitle title="Home Page" className="w-full px-4 pt-2" />
+      <LargeTitle title="Gestiona y contabiliza tu emprendimiento" className="w-full px-4 pt-2" />
       <div className="w-full flex flex-wrap items-stretch justify-start mt-3">
         <CardTitle title="Mis Pymes">
           {

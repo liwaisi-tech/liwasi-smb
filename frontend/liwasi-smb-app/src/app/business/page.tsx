@@ -2,6 +2,8 @@
 import LargeTitle from "@/components/LargeTitle"
 import PanelMenu from "@/components/PanelMenu"
 import RoundedCard from "@/components/RoundedCard"
+import BusinessList from "@/components/business/BusinessList"
+import EmptyBusinessList from "@/components/business/EmptyBusinessList"
 import CardTitle from "@/components/card/CardTitle"
 import { useEffect, useState } from "react"
 
@@ -25,15 +27,14 @@ async function BusinessesPage() {
                 <div className="w-full">
                     <LargeTitle title="Administra y gestiona tus emprendimientos." />
                 </div>
-                {
-                    businesses.map((business) => {
-                        console.log(business)
-                        return (
-                            <CardTitle key={business.id} title={business.full_name}>
-                            </CardTitle>
-                        )
-                    })
-                }
+                <CardTitle title="Mis Pymes">
+                    {
+                        businesses.length === 0 ?
+                            <EmptyBusinessList />
+                            :
+                            <BusinessList businessList={businesses} fullIcons={true}/>
+                    }
+                </CardTitle>
             </div>
         </div>
     )

@@ -9,7 +9,7 @@ export default function Home() {
   const emptyBusinessList: Business[] = []
   const [businessList, setBusinessList] = useState(emptyBusinessList)
   useEffect(() => {
-    fetch('http://localhost:3000/api/business')
+    fetch('/api/business')
       .then(res => res.json())
       .then(data => setBusinessList(data))
       .catch(err => console.log(err))

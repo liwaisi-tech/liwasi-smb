@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { AiFillDollarCircle, AiFillEdit, AiFillMinusCircle } from "react-icons/ai";
 import BusinessItem from "./BusinessItem";
 
 interface BusinessListProps {

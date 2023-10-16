@@ -27,7 +27,7 @@ function ProductTable({ productList }: { productList?: Product[] }) {
 
                         {
                             productList.map((product, index) => (
-                                <tr>
+                                <tr key={index}>
                                     <td>{product.name}</td>
                                     <td className="text-center">{formatNumber(product.price)}</td>
                                     <td className="text-center">{product.quantity}</td>

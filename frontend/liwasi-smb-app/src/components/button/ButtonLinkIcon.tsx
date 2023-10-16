@@ -6,6 +6,7 @@ interface ButtonLinkIconProps {
     href: string;
     icon: React.ReactNode;
     tooltip?: string;
+    onClick?: () => void;
 }
 function ButtonLinkIcon(props: ButtonLinkIconProps) {
     const [showTooltip, setShowTooltip] = useState(false)
@@ -13,6 +14,7 @@ function ButtonLinkIcon(props: ButtonLinkIconProps) {
         <div
             onMouseOver={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
+            onClick={props.onClick}
             className="flex items-center px-2">
             <Link href={props.href}>
                 {props.icon}

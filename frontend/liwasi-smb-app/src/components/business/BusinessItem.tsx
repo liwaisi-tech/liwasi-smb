@@ -21,7 +21,7 @@ function BusinessItem(props: BusinessItemProps) {
                 <div className="flex justify-center bg-opacity-80 text-white bg-black rounded-lg px-2">
                     <ButtonLinkIcon
                         tooltip="Registrar nueva venta"
-                        href={`#`}
+                        href={`/business/sell/${props.business.id}`}
                         icon={<AiFillDollarCircle size={20} />} />
                     <p>|</p>
                     <ButtonLinkIcon

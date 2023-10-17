@@ -24,7 +24,7 @@ export default function RootLayout({
           <div className="hidden text-white bg-black md:flex md:w-1/5 md:h-screen">
             <PanelMenu />
           </div>
-          <div className="w-full md:w-4/5">
+          <div className="w-full md:w-4/5 pb-5 md:pb-0">
             <NavBar />
             {children}
             <BottomBar />

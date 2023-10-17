@@ -36,10 +36,14 @@ function PanelMenu(props: PanelMenuProps) {
                                 </ul>
                             </li>
                             <li>
-                                <a href="#inventario">Inventarios</a>
+                                <p>Inventarios</p>
                                 <ul className="pl-2">
-                                    <li className="hover:text-white" onClick={props.fallback}><a href="#categorias">Categorías</a></li>
-                                    <li className="hover:text-white" onClick={props.fallback}><a href="#producto">Productos</a></li>
+                                    <li className="hover:text-white" onClick={props.fallback}>
+                                        <Link href="/category/">Categorías</Link>
+                                    </li>
+                                    <li className="hover:text-white" onClick={props.fallback}>
+                                        <Link href="/product/">Productos</Link>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>

@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(request : Request, { params }: { params: { businessId: string }}) {
     //Llamar el microservicio de business
+    console.log(`businessId: ${params.businessId}`)
     const id = (params.businessId as string) ?  params.businessId as string : ""
     const response = await fetch(`http://${process.env.SMB_API_REST_HOST}:8010/business/${id}`, {next: { revalidate: 0 }});
     const business = await response.json();

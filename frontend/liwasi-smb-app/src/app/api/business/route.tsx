@@ -6,9 +6,6 @@ export async function POST(request: Request) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
     }
-    if (!body.id || body.id === ""){
-        return NextResponse.json({ error: 'Business id is required' }, { status: 400 })
-    }
     const response = await fetch(`http://${process.env.SMB_API_REST_HOST}:8010/business/`, requestOptions)
     const status = await response.status
     if (response.ok) {

@@ -1,8 +1,8 @@
 interface SaleDetail {
-    Id: string;
-    SaleId: string;
-    ProductId: string;
-    ProductName: string;
-    Price: number;
-    Quantity: number;
+    id: string;
+    sale_id: string;
+    product_id: string;
+    product_name: string;
+    price: number;
+    quantity: number;
 }

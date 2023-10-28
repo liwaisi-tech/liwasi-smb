@@ -11,42 +11,42 @@ import { AiFillDelete, AiFillEdit, AiFillFileAdd } from "react-icons/ai";
 function dummyData(): SaleDetail[] {
     return [
         {
-            Id: "1",
-            SaleId: "1",
-            ProductId: "1",
-            ProductName: "Empanada",
-            Quantity: 5,
-            Price: 2000,
+            id: "1",
+            sale_id: "1",
+            product_id: "1",
+            product_name: "Empanada",
+            quantity: 5,
+            price: 2000,
         },
         {
-            Id: "1",
-            SaleId: "1",
-            ProductId: "2",
-            ProductName: "Cholao Mediano",
-            Quantity: 3,
-            Price: 4000,
+            id: "1",
+            sale_id: "1",
+            product_id: "2",
+            product_name: "Cholao Mediano",
+            quantity: 3,
+            price: 4000,
         },
         {
-            Id: "1",
-            SaleId: "1",
-            ProductId: "3",
-            ProductName: "Cholao Grande",
-            Quantity: 1,
-            Price: 6000,
+            id: "1",
+            sale_id: "1",
+            product_id: "3",
+            product_name: "Cholao Grande",
+            quantity: 1,
+            price: 6000,
         },
         {
-            Id: "1",
-            SaleId: "1",
-            ProductId: "4",
-            ProductName: "Raspado",
-            Quantity: 4,
-            Price: 2000,
+            id: "1",
+            sale_id: "1",
+            product_id: "4",
+            product_name: "Raspado",
+            quantity: 4,
+            price: 2000,
         }
     ]
 }
 
 function deleteItemProduct(data: SaleDetail[], productKey: string): SaleDetail[] {
-    return data.filter(item => item.ProductId !== productKey)
+    return data.filter(item => item.product_id !== productKey)
 }
 
 function BusinessSalePage() {
@@ -57,7 +57,7 @@ function BusinessSalePage() {
     }
     function getTotal(): number {
         return data.reduce((accumulator, detail) => {
-            const subtotal = detail.Price * detail.Quantity;
+            const subtotal = detail.price * detail.quantity;
             return accumulator + subtotal;
         }, 0);
 
@@ -108,20 +108,20 @@ function BusinessSalePage() {
 
                         data.map((detail, index) => (
                             <div className="table-row-group" key={index}>
-                                <div className="table-row">
+                                <div className="table-row hover:cursor-pointer hover:bg-black hover:text-white">
                                     <div className="table-cell pl-4">
-                                        {detail.ProductName}
+                                        {detail.product_name}
                                     </div>
                                     <div className="table-cell text-center">
-                                        {detail.Quantity}
+                                        {detail.quantity}
                                     </div>
                                     <div className="table-cell text-end">
-                                        {`$${detail.Price * detail.Quantity}`}
+                                        {`$${detail.price * detail.quantity}`}
                                     </div>
                                     <div className="table-cell">
                                         <div className="w-full flex items-center justify-center">
                                             <AiFillEdit size={20} />
-                                            <ButtonIcon onClick={() => handleDelete(detail.ProductId)}>
+                                            <ButtonIcon onClick={() => handleDelete(detail.product_id)}>
                                                 <AiFillDelete size={20} />
                                             </ButtonIcon>
                                         </div>
@@ -131,10 +131,10 @@ function BusinessSalePage() {
                         ))
                     }
                     <div className="table-footer-group  bg-bg-alternative text-white py-2">
-                        <div className="table-cell"></div>
+                        <div className="table-cell rounded-bl-lg"></div>
                         <div className="table-cell text-end">Total:</div>
                         <div className="table-cell text-end">{`$${getTotal()}`}</div>
-                        <div className="table-cell"></div>
+                        <div className="table-cell rounded-br-lg"></div>
                     </div>
                 </div>
                 <div className="w-full flex items-center justify-end mt-2 px-4">

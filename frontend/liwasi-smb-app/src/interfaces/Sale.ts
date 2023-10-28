@@ -1,5 +1,5 @@
 interface Sale {
-    Id: string;
-    BusinessId: string;
-    Status: string;
+    id: string;
+    business_id: string;
+    status: string;
 }

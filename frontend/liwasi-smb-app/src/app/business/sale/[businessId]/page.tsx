@@ -23,7 +23,7 @@ function dummyData(): SaleDetail[] {
             SaleId: "1",
             ProductId: "2",
             ProductName: "Cholao Mediano",
-            Quantity: 2,
+            Quantity: 3,
             Price: 4000,
         },
         {
@@ -53,6 +53,13 @@ function BusinessSalePage() {
     const [data, setData] = useState<SaleDetail[]>(dummyData())
     function handleDelete(productKey: string) {
         setData(deleteItemProduct(data, productKey))
+
+    }
+    function getTotal(): number {
+        return data.reduce((accumulator, detail) => {
+            const subtotal = detail.Price * detail.Quantity;
+            return accumulator + subtotal;
+        }, 0);
 
     }
     return (
@@ -126,7 +133,7 @@ function BusinessSalePage() {
                     <div className="table-footer-group  bg-bg-alternative text-white py-2">
                         <div className="table-cell"></div>
                         <div className="table-cell text-end">Total:</div>
-                        <div className="table-cell text-end">$32000</div>
+                        <div className="table-cell text-end">{`$${getTotal()}`}</div>
                         <div className="table-cell"></div>
                     </div>
                 </div>

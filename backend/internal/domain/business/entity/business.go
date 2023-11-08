@@ -5,8 +5,7 @@ import "gorm.io/gorm"
 // Business is the struct representation for Small and Medium Business
 type Business struct {
 	gorm.Model `json:"-"`
-	ID         string `gorm:"primaryKey" json:"id"`
-	FullName   string `json:"full_name,omitempty"`
+	ID         string `json:"id" gorm:"type:uuid;default:uuid_generate_v4();primaryKey"`
 	Name       string `json:"name"`
 	Email      string `json:"email,omitempty"`
 	Phone      string `json:"phone,omitempty"`

@@ -1,6 +1,6 @@
 interface SingleButtonProps {
   text: string;
-  textColor?: string;
+  className?: string;
   type?: "button" | "submit" | "reset" | undefined;
   onClick?: () => void;
 }
@@ -9,7 +9,7 @@ function SingleButton(props: SingleButtonProps) {
     <button
       onClick={props.onClick}
       type={props.type}
-      className={`${props.textColor ? props.textColor : "text-primary-blue-dark"} px-4 py-2 rounded-md shadow-sm font-semibold`}>
+      className={`${props.className ? props.className : "text-white"} text-sm px-1 py-1 md:px-4 md:py-2 rounded-md shadow-lg ml-1 font-normal md:font-semibold`}>
       {props.text}
     </button>
   )

@@ -10,6 +10,14 @@ const config: Config = {
     extend: {
       colors: {
         'primary-blue-dark': '#1E40AF',
+        'black': '#121212',
+        'primary': '#333333',
+        'detail': '#CCCCCC',
+        'accent-blue': '#008080',
+        'accent-yellow': '#FFD700',
+        'accent-red': '#8B0000',
+        'bg-alternative': '#333333',
+        'link-dark': '#0099FF'
       }
     },
   },

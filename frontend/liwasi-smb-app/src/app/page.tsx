@@ -1,26 +1,32 @@
+"use client"
 import LargeTitle from '@/components/LargeTitle'
-import NavBar from '@/components/NavBar'
-import RoundedBgButton from '@/components/RoundedBgButton'
-import RoundedCard from '@/components/RoundedCard'
-import Link from 'next/link'
+import CardTitle from '@/components/card/CardTitle'
+import BusinessList from '@/components/business/BusinessList'
+import EmptyBusinessList from '@/components/business/EmptyBusinessList'
+import { use, useEffect, useState } from 'react'
 
 export default function Home() {
+  const emptyBusinessList: Business[] = []
+  const [businessList, setBusinessList] = useState(emptyBusinessList)
+  useEffect(() => {
+    fetch('/api/business')
+      .then(res => res.json())
+      .then(data => setBusinessList(data))
+      .catch(err => console.log(err))
+  }, [])
   return (
-    <section className="flex flex-col w-3/4 justify-center">
-      <LargeTitle title="Mis Pymes" className="px-4" />
-      <div className="w-full flex justify-between items-center">
-      <Link
-        href="/business"
-      >
-        <RoundedBgButton text="Ver mis pymes" />
-      </Link>
-
-      <Link
-        href="/business/new"
-      >
-        <RoundedBgButton text="Crear una pyme" />
-      </Link>
+    <main className="w-full px-2">
+      <LargeTitle title="Gestiona y contabiliza tu emprendimiento" className="w-full px-4 pt-2" />
+      <div className="w-full flex flex-wrap items-stretch justify-start mt-3">
+        <CardTitle title="Mis Pymes">
+          {
+            businessList.length === 0 ?
+              <EmptyBusinessList />
+              :
+              <BusinessList businessList={businessList} />
+          }
+        </CardTitle>
       </div>
-    </section>
+    </main>
   )
 }

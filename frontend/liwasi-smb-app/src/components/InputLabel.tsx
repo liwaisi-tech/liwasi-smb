@@ -19,7 +19,7 @@ function InputLabel(props: InputLabelProps) {
             <div className="w-full">
                 <input
                     id={props.id}
-                    className="w-full border border-primary-blue-dark rounded-md p-2 text-base font-normal text-gray-900"
+                    className="w-full border border-primary-blue-dark rounded-md px-2 py-1 text-base font-normal text-gray-900"
                     type={props.type}
                     onChange={props.onChange}
                     defaultValue={props.value} />

@@ -1,10 +1,11 @@
 "use client"
-import LargeTitle from "@/components/LargeTitle"
-import { Metadata } from "next"
+import TransactionList from "@/components/TransactionList"
+import CardTitle from "@/components/card/CardTitle"
 import { useEffect, useState } from "react"
-import { FcAddressBook, FcCellPhone, FcHome } from "react-icons/fc"
+import { AiFillEdit } from "react-icons/ai"
 
 function ViewBusiness({ params }: { params: { businessId: string } }) {
+  const [business, setBusiness] = useState<Business>({ id: "" })
   const [businessId, setBusinessId] = useState("")
   const [fullName, setFullName] = useState("")
   const [name, setName] = useState("")
@@ -20,14 +21,7 @@ function ViewBusiness({ params }: { params: { businessId: string } }) {
       fetch(`/api/business/${params.businessId}`)
         .then(res => res.json())
         .then(data => {
-          setBusinessId(data.id)
-          setFullName(data.full_name)
-          setName(data.name)
-          setEmail(data.email)
-          setPhone(data.phone)
-          setAddress(data.address)
-          setCity(data.city)
-          setState(data.state)
+          setBusiness(data)
         })
         .catch(err => {
           console.log(err)
@@ -35,35 +29,36 @@ function ViewBusiness({ params }: { params: { businessId: string } }) {
     }
   }, [])
   return (
-    <section className="w-full flex justify-center">
-      <div className="w-full md:w-2/3 ">
-        <LargeTitle title={fullName} />
-        <p className="py-1 font-extralight text-3xl text-primary-blue-dark"
-        >
-          {businessId}
-        </p>
-        <p className="pe-1 text-lg font-light text-primary-blue-dark">{name}</p>
-        <div className="w-full flex items-start">
-          <FcCellPhone size={32} />
-          <p className="text-lg font-light text-primary-blue-dark">{phone}</p>
-        </div>
-        <div className="w-full flex items-start">
-          <FcAddressBook size={32} />
-          <p className="text-lg font-light text-primary-blue-dark">{email}</p>
-        </div>
-        <div className="w-full flex items-start">
-          <FcHome size={32} />
-          <p className="text-lg font-light text-primary-blue-dark">
+    <main className="w-full flex justify-center">
+      <div className="w-full flex flex-col justify-center p-4">
+        <h3 className="font-extralight text-white text-3xl md:text-4xl">
+          {business.name}
+        </h3>
+        {
+          business.phone &&
+          <p className="text-base font-light text-detail">
+            <span>Teléfono: </span>{business.phone}
+          </p>
+        }
+        {
+          business.email &&
+          <p className="text-base font-light text-detail">{business.email}</p>
+        }
+        {
+          business.address &&
+          <p className="text-base font-light text-detail">
             {
-              `${address ? `${address}` : ""}${city ? `, ${city}` : ""}${state ? `, ${state}` : ""}`
+              `${business.address} ${business.city ? `, ${business.city}` : ""}${business.state ? `, ${business.state}` : ""}`
             }
           </p>
-        </div>
-        <div className="w-full">
-
+        }
+        <div className="w-full flex flex-wrap justify-between pt-2">
+          <div className="w-full pt-2">
+            <TransactionList />
+          </div>
         </div>
       </div>
-    </section>
+    </main>
   )
 }
 

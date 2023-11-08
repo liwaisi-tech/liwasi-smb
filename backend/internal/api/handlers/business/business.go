@@ -1,6 +1,8 @@
 package business
 
 import (
+	"log"
+
 	"github.com/gin-gonic/gin"
 	"github.com/liwasi-tech/liwasi-sbm/backend/internal/domain/business/entity"
 	"github.com/liwasi-tech/liwasi-sbm/backend/internal/domain/business/service"
@@ -76,12 +78,9 @@ func Create() gin.HandlerFunc {
 			c.JSON(400, err)
 			return
 		}
-		if business.ID == "" {
-			c.JSON(400, "ID is empty")
-			return
-		}
 		err = service.CreateBusiness(business)
 		if err != nil {
+			log.Println("Error Create: ", err)
 			if err.Error() == "user already exist" {
 				c.JSON(409, err)
 				return

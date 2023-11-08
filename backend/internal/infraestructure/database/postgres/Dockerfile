@@ -2,6 +2,8 @@
 # and create the database and tables needed for the project
 
 FROM postgres:12.16-alpine
+# Copiar el archivo de creación de la base de datos
+COPY up.sql /docker-entrypoint-initdb.d/
 
 # Copiar el archivo de creación de la base de datos
 # COPY up.sql /docker-entrypoint-initdb.d/

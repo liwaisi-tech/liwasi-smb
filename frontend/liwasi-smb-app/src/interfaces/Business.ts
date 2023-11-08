@@ -1,7 +1,6 @@
 
 interface Business {
     id: string;
-    fullName: string;
     name?: string;
     email?: string;
     phone?: string;
